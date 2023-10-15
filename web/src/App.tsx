@@ -1,7 +1,14 @@
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { routes } from './Routes';
+
 export function App() {
   return (
-    <main className="h-[100vh] w-[100vw] bg-blue-500">
-      <h1 className=" text-center text-2xl font-semibold">Olá mundo</h1>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        {routes.map(({ path, element }, index) => (
+          <Route key={index} path={path} element={element} />
+        ))}
+      </Routes>
+    </BrowserRouter>
   );
 }
