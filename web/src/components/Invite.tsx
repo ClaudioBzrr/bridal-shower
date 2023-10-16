@@ -1,5 +1,8 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable tailwindcss/no-custom-classname */
+import {BiFork} from 'react-icons/bi'
+import {GiSpoon} from 'react-icons/gi'
+
 export function Invite() {
   return (
     <section className="h-[23em] w-[95vw] rounded-full bg-[url('../assets/images/we-1.jpg')] bg-cover bg-center bg-no-repeat text-slate-50 sm:h-[40em] sm:w-[40em]">
@@ -7,9 +10,13 @@ export function Invite() {
         id="presentation"
         className="flex h-full flex-col items-center justify-evenly text-center backdrop-blur-[3px]"
       >
-        <h3 className="font-amatic text-3xl font-semibold sm:text-5xl">
-          Chá de cozinha
-        </h3>
+        <div className='font-amatic flex flex-row items-center justify-center text-3xl font-semibold sm:text-5xl'>
+            <BiFork/>
+            <h3 className="">
+                Chá de cozinha
+            </h3>
+            <GiSpoon/>
+        </div>
         <h1 className="font-satisfy text-5xl font-bold sm:text-8xl">
           Claudio & Nayra
         </h1>
