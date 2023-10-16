@@ -17,7 +17,7 @@ export function Home() {
           <div className='sm: ml-2'><a className="flex flex-row text-green-700 hover:underline" target="__blank" href="https://maps.app.goo.gl/GGCJYrEpCwuUN5Kg6"><FaLocationDot/>Floresta Bar</a></div>
         </div>
         <div id="confirm-presence">
-            <button className="font-amatic flex flex-row items-center rounded-full bg-red-400 p-3 text-2xl font-bold sm:p-5 sm:text-3xl">Quero participar<FiChevronsRight/></button>
+            <button className="0.5s font-amatic flex flex-row items-center rounded-full bg-red-400 p-3 text-2xl font-bold transition-all ease-in-out hover:bg-red-500 sm:p-5 sm:text-3xl">Quero participar<FiChevronsRight/></button>
         </div>
       </section>
     </main>
