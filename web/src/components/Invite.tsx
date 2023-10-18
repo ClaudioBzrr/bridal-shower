@@ -5,7 +5,7 @@ import {GiSpoon} from 'react-icons/gi'
 
 export function Invite() {
   return (
-    <section className="h-[23em] w-[95vw] rounded-full bg-[url('../assets/images/we-1.jpg')] bg-cover bg-center bg-no-repeat text-slate-50 sm:h-[40em] sm:w-[40em]">
+    <section className="h-[23em] w-[95vw] rounded-full bg-[url('../assets/images/we-1.jpg')] bg-cover bg-center bg-no-repeat text-slate-50 sm:h-[40em] sm:w-[40em] md:h-[72vh] md:w-[40vw]">
       <div
         id="presentation"
         className="flex h-full flex-col items-center justify-evenly text-center backdrop-blur-[3px]"
