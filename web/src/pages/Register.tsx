@@ -11,7 +11,7 @@ export function Register() {
       <h1 className="text-center font-satisfy text-4xl text-slate-50">
         Faça o cadastro para prosseguir, é simples e rápido
       </h1>
-      <form className="mx-16 flex w-auto flex-col items-end justify-center rounded-xl border-[1px] border-dashed border-slate-50 p-20">
+      <form className="mx-16 flex w-auto flex-col items-end justify-center rounded-xl border-[1px] border-dashed border-slate-50 p-10">
         <div className="flex flex-row items-end justify-end">
           <Label htmlFor="name">Nome : </Label>
           <Input id="name" />
