@@ -2,7 +2,7 @@ import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import { Label } from '../components/Label';
 
-export function Login() {
+export function Register() {
   return (
     <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw]  flex-col items-center justify-evenly bg-slate-900">
       <form className="mx-16 w-auto rounded-xl border-[1px] border-dashed border-slate-50 p-10">
@@ -15,10 +15,7 @@ export function Login() {
           <Input id="email" />
         </div>
         <div className="mt-4 flex w-full flex-col items-center justify-center">
-          <a className="w-full p-1 text-right text-green-700">
-            Já tem uma conta? entre
-          </a>
-          <Button title="Criar" />
+          <Button title="Entrar" />
         </div>
       </form>
     </main>
