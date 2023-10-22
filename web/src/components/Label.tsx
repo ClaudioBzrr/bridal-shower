@@ -2,11 +2,14 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import { LabelHTMLAttributes } from 'react';
 
-export function Label(data: LabelHTMLAttributes<HTMLLabelElement>) {
+export type ILabel = LabelHTMLAttributes<HTMLLabelElement> & {
+  title: string;
+};
+
+export function Label({ title, ...rest }: ILabel) {
   return (
-    <label
-      className="mx-4 font-amatic text-2xl text-slate-50"
-      {...data}
-    ></label>
+    <label className="mx-4 font-amatic text-2xl text-slate-50" {...rest}>
+      {title}
+    </label>
   );
 }
