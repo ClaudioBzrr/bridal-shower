@@ -1,3 +1,4 @@
+import { Event } from './pages/Event';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
@@ -15,5 +16,9 @@ export const routes: IRoute[] = [
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/event',
+    element: <Event />,
   },
 ];
