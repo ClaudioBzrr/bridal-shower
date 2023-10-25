@@ -19,7 +19,7 @@ export function ConfirmStep({ onSetStepEvent }: IEvent) {
           <Button title="Não" />
         </div>
         <div className="min-w-[100px]">
-          <Button title="Sim" />
+          <Button primary title="Sim" />
         </div>
       </div>
     </form>

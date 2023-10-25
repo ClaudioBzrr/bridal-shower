@@ -11,7 +11,7 @@ export function Login() {
           <Input placeholder="Digite seu E-mail / Nome" />
         </div>
         <div className="pt-12">
-          <Button title="Entrar" />
+          <Button primary title="Entrar" />
         </div>
         <div className="pt-12 text-center">
           <a

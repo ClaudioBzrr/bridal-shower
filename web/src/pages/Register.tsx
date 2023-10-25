@@ -18,7 +18,7 @@ export function Register() {
           <Input placeholder="Digite seu Nome" />
         </div>
         <div className="mt-12 w-full">
-          <Button title="Criar" />
+          <Button primary title="Criar" />
         </div>
       </form>
     </main>
