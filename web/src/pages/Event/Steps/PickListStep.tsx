@@ -31,7 +31,7 @@ export function PickListStep() {
               }`}
             >
               {selectedItems.includes(e.name) ? (
-                <div className="flex flex-row">
+                <div className="flex flex-row text-green-900">
                   <AiOutlineCheck />
                   {e.name}
                 </div>
