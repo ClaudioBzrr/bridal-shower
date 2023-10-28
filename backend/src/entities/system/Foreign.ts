@@ -1,7 +1,7 @@
-import { IInvited } from '../Invited';
+import { IUser } from '../User';
 import { IItem } from '../Item';
 
 export type IForeign = {
-  invited: IInvited;
+  user: IUser;
   item: IItem;
 };
