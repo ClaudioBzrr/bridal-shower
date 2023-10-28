@@ -9,3 +9,4 @@ export type IUser = IAutogen & {
 };
 
 export type ICreateUserPayload = Omit<IUser, keyof IAutogen | keyof IForeign>;
+export type ILoginPayload = Pick<IUser, 'email'>;

@@ -3,6 +3,8 @@ import { IAutogen } from './system/Autogen';
 
 export type IItem = IAutogen & {
   name: string;
-  userId?: string;
+  userId?: IUser['id'];
   user?: IUser;
 };
+
+export type IPickItemPayload = { itemId: IItem['id'][]; userId: IUser['id'] };
