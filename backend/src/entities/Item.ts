@@ -13,3 +13,4 @@ export type ICreateItemPayload = {
   authId: IUser['id'];
   data: Omit<IItem, keyof IAutogen | keyof IForeign>;
 };
+export type IGetConfirmedNumberPayload = { authId: IUser['id'] };
