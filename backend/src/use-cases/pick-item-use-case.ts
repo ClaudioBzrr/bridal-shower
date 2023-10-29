@@ -7,7 +7,7 @@ export class PickItemUseCase {
   async exec(payload: IPickItemPayload) {
     payload.itemId.map(async (e) => {
       const item = await this.itemRepository.findOne({ id: e });
-      if (item.userId == '') {
+      if (item.userId == null) {
         await this.itemRepository.update({ id: e }, { userId: payload.userId });
       }
     });
