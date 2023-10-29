@@ -5,7 +5,7 @@ export type IUser = IAutogen & {
   name: string;
   role: string;
   email: string;
-  confirmedAttendance: number;
+  confirmedAttendance?: number | null;
 };
 
 export type ICreateUserPayload = Omit<IUser, keyof IAutogen | keyof IForeign>;

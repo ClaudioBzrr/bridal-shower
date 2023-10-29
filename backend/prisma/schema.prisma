@@ -11,13 +11,14 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  role      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  item      Item[]   @relation(name: "user")
+  id                  String   @id @default(uuid())
+  name                String
+  email               String   @unique
+  confirmedAttendance Int?     @default(0)
+  role                String
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  item                Item[]   @relation(name: "user")
 
   @@map("users")
 }

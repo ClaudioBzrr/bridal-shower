@@ -3,7 +3,7 @@ import { IAutogen } from './system/Autogen';
 
 export type IItem = IAutogen & {
   name: string;
-  userId?: IUser['id'];
+  userId?: string | null;
   user?: IUser;
 };
 
