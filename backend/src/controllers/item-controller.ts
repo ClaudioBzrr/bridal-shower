@@ -9,7 +9,7 @@ import { PickItemUseCase } from '../use-cases/pick-item-use-case';
 const userRepository = new PrismaUserRepository();
 const itemRepository = new PrismaItemRepository();
 
-export class IItemController {
+export class ItemController {
   async create(request: Request, response: Response) {
     try {
       const createItemUseCase = new CreateItemUSeCase(
