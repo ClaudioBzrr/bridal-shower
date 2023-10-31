@@ -14,3 +14,4 @@ routes.post('/login', userController.login);
 routes.get('/items', itemController.find);
 routes.post('/item', itemController.create);
 routes.post('/pick', itemController.pick);
+routes.post('/all-items', itemController.findAll);

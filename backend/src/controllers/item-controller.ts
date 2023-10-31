@@ -2,9 +2,14 @@ import { Request, Response } from 'express';
 import { CreateItemUSeCase } from '../use-cases/create-item-use-case';
 import { PrismaUserRepository } from '../repositories/prisma/prisma-user-repository';
 import { PrismaItemRepository } from '../repositories/prisma/prisma-item-repository';
-import { ICreateItemPayload, IPickItemPayload } from '../entities/Item';
+import {
+  ICreateItemPayload,
+  IListAllItemsPayload,
+  IPickItemPayload,
+} from '../entities/Item';
 import { ListItemsUseCase } from '../use-cases/list-items-use-case';
 import { PickItemUseCase } from '../use-cases/pick-item-use-case';
+import { ListAllItemsUseCase } from '../use-cases/list-all-items-use-case';
 
 const userRepository = new PrismaUserRepository();
 const itemRepository = new PrismaItemRepository();
@@ -38,6 +43,19 @@ export class ItemController {
       const payload: IPickItemPayload = request.body;
       const item = await pickItemUseCAse.exec(payload);
       return response.json(item);
+    } catch (err) {
+      return response.status(404).json(err);
+    }
+  }
+  async findAll(request: Request, response: Response) {
+    try {
+      const payload: IListAllItemsPayload = request.body;
+      const listAllItemsUseCase = new ListAllItemsUseCase(
+        itemRepository,
+        userRepository,
+      );
+      const items = await listAllItemsUseCase.execute(payload);
+      return response.json(items);
     } catch (err) {
       return response.status(404).json(err);
     }
