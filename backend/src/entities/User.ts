@@ -3,10 +3,13 @@ import { IForeign } from './system/Foreign';
 
 export type IUser = IAutogen & {
   name: string;
-  role: string;
+  role?: string | null;
   email: string;
   confirmedAttendance?: number | null;
 };
 
-export type ICreateUserPayload = Omit<IUser, keyof IAutogen | keyof IForeign>;
+export type ICreateUserPayload = Omit<
+  IUser,
+  keyof IAutogen | keyof IForeign | 'role'
+>;
 export type ILoginPayload = Pick<IUser, 'email'>;

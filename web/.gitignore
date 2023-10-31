@@ -22,3 +22,5 @@ list-mock.json
 *.njsproj
 *.sln
 *.sw?
+*.env
+
