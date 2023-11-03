@@ -1,9 +1,11 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable tailwindcss/classnames-order */
+import { FormEvent } from 'react';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 
 export function Login() {
+  async function handleLogin(event: FormEvent) {}
   return (
     <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw] flex-col items-center justify-evenly bg-slate-900">
       <form className="flex h-80 w-80 flex-col justify-center">
