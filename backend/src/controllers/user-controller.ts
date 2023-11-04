@@ -36,6 +36,7 @@ export class UserController {
       );
       const payload: IConfirmPeopeAmountPresencePayload = request.body;
       await confirmAmountPresenceUseCase.execute(payload);
+      return response.json('Quantidade atualizada com');
     } catch (err) {
       return response.status(404).json(String(err));
     }
