@@ -13,30 +13,33 @@ export function Login() {
   const [email, setEmail] = useState<string>('');
 
   async function handleLogin(event: FormEvent) {
-    try {
-      event.preventDefault();
-      const user: IUserRegisterApiResponse = await api
-        .post('/login', { email })
-        .then((response) => response.data);
-      localStorage.setItem('id', user.id);
-      localStorage.setItem('name', user.name);
-      navigate('/event');
-      toast.success('Usuário logado com sucesso', {
-        position: 'top-center',
-        duration: 2000,
+    event.preventDefault();
+    const user: IUserRegisterApiResponse = await api
+      .post('/login', { email })
+      .then((response) => response.data)
+      .catch((err) => {
+        toast.error('response' in err ? err.response.data : String(err), {
+          position: 'top-center',
+        });
       });
-    } catch (err) {
-      toast.error(String(err), { position: 'top-center' });
-    }
+    localStorage.setItem('id', user.id);
+    localStorage.setItem('name', user.name);
+    navigate('/event');
+    toast.success('Usuário logado com sucesso', {
+      position: 'top-center',
+      duration: 2000,
+    });
   }
   return (
     <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw] flex-col items-center justify-evenly bg-slate-900">
+      <Toaster />
       <form
         onSubmit={(e) => handleLogin(e)}
         className="flex h-80 w-80 flex-col justify-center"
       >
         <div className="w-full">
           <Input
+            required
             placeholder="Digite seu E-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

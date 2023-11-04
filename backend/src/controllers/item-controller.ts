@@ -57,7 +57,7 @@ export class ItemController {
       const items = await listAllItemsUseCase.execute(payload);
       return response.json(items);
     } catch (err) {
-      return response.status(404).json(err);
+      return response.status(404).json(String(err));
     }
   }
 }

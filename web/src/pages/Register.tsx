@@ -14,17 +14,25 @@ export function Register() {
   const [name, setName] = useState<string>('');
 
   async function handleRegister(event: FormEvent) {
-    const duration = 2000;
+    const duration = 1000;
     event.preventDefault();
     const user: IUserRegisterApiResponse = await api
       .post('/user', { name, email })
-      .then((response) => response.data);
-    localStorage.setItem(name, user.name);
-    navigate('/event');
-    return toast.success('Usuário criado com sucesso', {
+      .then((response) => response.data)
+      .catch((err) => {
+        toast.error('response' in err ? err.response.data : String(err), {
+          position: 'top-center',
+          duration,
+        });
+      });
+    localStorage.setItem('name', user.name);
+    localStorage.setItem('id', user.id);
+
+    toast.success('Usuário criado com sucesso', {
       position: 'top-center',
       duration,
     });
+    setTimeout(() => navigate('/event'), duration);
   }
   return (
     <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw] flex-col items-center justify-center bg-slate-900">
