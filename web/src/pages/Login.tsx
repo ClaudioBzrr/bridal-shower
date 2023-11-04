@@ -1,16 +1,46 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 /* eslint-disable tailwindcss/classnames-order */
-import { FormEvent } from 'react';
+import { useState, FormEvent } from 'react';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
+import { IUserRegisterApiResponse } from '../types/User';
+import { api } from '../services/api';
+import { useNavigate } from 'react-router-dom';
+import { toast, Toaster } from 'react-hot-toast';
 
 export function Login() {
-  async function handleLogin(event: FormEvent) {}
+  const navigate = useNavigate();
+  const [email, setEmail] = useState<string>('');
+
+  async function handleLogin(event: FormEvent) {
+    try {
+      event.preventDefault();
+      const user: IUserRegisterApiResponse = await api
+        .post('/login', { email })
+        .then((response) => response.data);
+      localStorage.setItem('id', user.id);
+      localStorage.setItem('name', user.name);
+      navigate('/event');
+      toast.success('Usuário logado com sucesso', {
+        position: 'top-center',
+        duration: 2000,
+      });
+    } catch (err) {
+      toast.error(String(err), { position: 'top-center' });
+    }
+  }
   return (
     <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw] flex-col items-center justify-evenly bg-slate-900">
-      <form className="flex h-80 w-80 flex-col justify-center">
+      <form
+        onSubmit={(e) => handleLogin(e)}
+        className="flex h-80 w-80 flex-col justify-center"
+      >
         <div className="w-full">
-          <Input placeholder="Digite seu E-mail / Nome" />
+          <Input
+            placeholder="Digite seu E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div className="pt-12">
           <Button primary title="Entrar" />
