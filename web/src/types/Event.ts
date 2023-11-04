@@ -1,5 +1,5 @@
 export type IEvent = {
-  onSetStepEvent: (e: boolean) => void;
+  onSetStepEvent: (data: { nextStep: boolean; confirmation: boolean }) => void;
 };
 
 export type IMockedEventItems = {

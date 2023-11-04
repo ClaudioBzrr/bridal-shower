@@ -15,3 +15,7 @@ export type ICreateItemPayload = {
 };
 export type IGetConfirmedNumberPayload = { authId: IUser['id'] };
 export type IListAllItemsPayload = { authId: IUser['id'] };
+export type IConfirmPeopeAmountPresencePayload = Pick<
+  IUser,
+  'confirmedAttendance'
+> & { authId: IUser['id'] };

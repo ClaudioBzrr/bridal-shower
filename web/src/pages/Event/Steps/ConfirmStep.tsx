@@ -1,21 +1,16 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Button } from '../../../components/Button';
 import { IEvent } from '../../../types/Event';
-import { api } from '../../../services/api';
 
 export function ConfirmStep({ onSetStepEvent }: IEvent) {
-  const [id, setId] = useState<string>('');
   const [confirmed, setConfirmed] = useState<boolean>(false);
+
   async function handleSubmitConfirmation(e: FormEvent<HTMLFormElement>) {
     e.preventDefault;
-    await api.post('/event');
-    onSetStepEvent(true);
+    // await api.post('/event');
+    onSetStepEvent({ nextStep: true, confirmation: confirmed });
   }
-
-  useEffect(() => {
-    setId(localStorage.getItem('id') || '');
-  }, []);
 
   return (
     <form onSubmit={(e) => handleSubmitConfirmation(e)}>
