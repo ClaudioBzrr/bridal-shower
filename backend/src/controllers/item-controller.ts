@@ -25,16 +25,16 @@ export class ItemController {
       const item = await createItemUseCase.exec(payload);
       return response.json(item);
     } catch (err) {
-      return response.status(404).json(err);
+      return response.status(404).json(String(err));
     }
   }
   async find(request: Request, response: Response) {
     try {
       const listItemsUseCase = new ListItemsUseCase(itemRepository);
-      const items = listItemsUseCase.exec();
+      const items = await listItemsUseCase.exec();
       return response.json(items);
     } catch (err) {
-      return response.status(404).json(err);
+      return response.status(404).json(String(err));
     }
   }
   async pick(request: Request, response: Response) {
@@ -44,7 +44,7 @@ export class ItemController {
       const item = await pickItemUseCAse.exec(payload);
       return response.json(item);
     } catch (err) {
-      return response.status(404).json(err);
+      return response.status(404).json(String(err));
     }
   }
   async findAll(request: Request, response: Response) {

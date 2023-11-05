@@ -9,7 +9,7 @@ export class PrismaUserRepository implements IUserRepository {
     data: Omit<IUser, keyof IAutogen | keyof IForeign>,
   ): Promise<IUser> {
     const user = await prisma.user.create({ data }).catch(() => {
-      throw new Error('Erro ao criar usuário');
+      throw new Error(`Erro ao criar usuário`);
     });
     return user;
   }
