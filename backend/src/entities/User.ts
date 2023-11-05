@@ -12,4 +12,8 @@ export type ICreateUserPayload = Omit<
   IUser,
   keyof IAutogen | keyof IForeign | 'role'
 >;
+export type ICreateAdminPayload = {
+  payload: Omit<IUser, keyof IAutogen | keyof IForeign>;
+  authId?: IUser['id'];
+};
 export type ILoginPayload = Pick<IUser, 'email'>;

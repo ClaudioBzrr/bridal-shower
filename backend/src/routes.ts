@@ -10,6 +10,7 @@ const itemController = new ItemController();
 routes.post('/user', userController.create);
 routes.post('/login', userController.login);
 routes.post('/confirm', userController.confirmPresence);
+routes.post('/admin', userController.createAdmin);
 
 // items
 routes.get('/items', itemController.find);
