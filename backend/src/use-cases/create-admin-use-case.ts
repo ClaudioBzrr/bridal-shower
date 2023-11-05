@@ -4,9 +4,11 @@ import { IUserRepository } from '../repositories/user-repository';
 export class CreateAdminUseCase {
   constructor(private userRepository: IUserRepository) {}
   async exec({ authId, payload }: ICreateAdminPayload) {
-    const totalUsers = (await this.userRepository.findMany({ role: 'admin' }))
-      .length;
-    if ('role' in payload && totalUsers == 0) {
+    payload.role = 'admin';
+    const totalAdminUsers = (
+      await this.userRepository.findMany({ role: 'admin' })
+    ).length;
+    if (totalAdminUsers == 0) {
       const { id } = await this.userRepository.create(payload);
       return { id };
     } else {
