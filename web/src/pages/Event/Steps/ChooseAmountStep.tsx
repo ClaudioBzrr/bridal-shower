@@ -6,10 +6,15 @@ import { useState, FormEvent } from 'react';
 import { api } from '../../../services/api';
 import toast from 'react-hot-toast';
 
-export function ChooseAmountStep() {
+interface IChoooseAmountStep {
+  onChooseAmount: (e: boolean) => void;
+}
+
+export function ChooseAmountStep({ onChooseAmount }: IChoooseAmountStep) {
   const [peopleAmount, setPeopleAmount] = useState<number>(0);
 
   async function handleConfirmPeopleAmount(e: FormEvent) {
+    const duration = 2000;
     e.preventDefault();
     const id = localStorage.getItem('id')!;
     await api
@@ -17,9 +22,13 @@ export function ChooseAmountStep() {
         authId: id,
         confirmedAttendance: peopleAmount + 1,
       })
+      .then(() => {
+        toast.success('Quantidade salva com sucesso', { duration });
+        setTimeout(() => onChooseAmount(true), duration);
+      })
       .catch(() =>
         toast.error('Erro ao confirmar quantidade de pessoas', {
-          duration: 2000,
+          duration,
         }),
       );
   }
