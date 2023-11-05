@@ -4,7 +4,6 @@ import { IUserRepository } from '../repositories/user-repository';
 export class CreateAdminUseCase {
   constructor(private userRepository: IUserRepository) {}
   async exec({ authId, payload }: ICreateAdminPayload) {
-    payload.role = 'admin';
     const totalAdminUsers = (
       await this.userRepository.findMany({ role: 'admin' })
     ).length;
@@ -14,7 +13,9 @@ export class CreateAdminUseCase {
     } else {
       const authUser = await this.userRepository.findOne({ id: authId! });
       if (authUser.role != 'admin') {
-        throw new Error('Usuário sem permissão para criar novos usuários');
+        throw new Error(
+          'Usuário sem permissão para criar novos Administradores',
+        );
       }
       const { id } = await this.userRepository.create(payload);
       return { id };
