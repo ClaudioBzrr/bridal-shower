@@ -19,6 +19,7 @@ model User {
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
   item                Item[]   @relation(name: "user")
+  finishedSubmit      Boolean? @default(false)
 
   @@map("users")
 }
