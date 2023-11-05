@@ -4,7 +4,7 @@ import { IForeign } from './system/Foreign';
 export type IUser = IAutogen & {
   name: string;
   role?: string | null;
-  finishedSubmit?: boolean;
+  finishedSubmit?: boolean | null;
   email: string;
   confirmedAttendance?: number | null;
 };
