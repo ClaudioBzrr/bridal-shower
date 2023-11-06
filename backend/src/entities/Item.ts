@@ -8,7 +8,7 @@ export type IItem = IAutogen & {
   user?: IUser;
 };
 
-export type IPickItemPayload = { itemId: IItem['id'][]; userId: IUser['id'] };
+export type IPickItemPayload = { itemId: IItem['id'][]; authId: IUser['id'] };
 export type ICreateItemPayload = {
   authId: IUser['id'];
   data: Omit<IItem, keyof IAutogen | keyof IForeign>;
