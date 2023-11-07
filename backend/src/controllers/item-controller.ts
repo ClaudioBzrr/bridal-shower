@@ -39,7 +39,10 @@ export class ItemController {
   }
   async pick(request: Request, response: Response) {
     try {
-      const pickItemUseCAse = new PickItemUseCase(itemRepository);
+      const pickItemUseCAse = new PickItemUseCase(
+        itemRepository,
+        userRepository,
+      );
       const payload: IPickItemPayload = request.body;
       const item = await pickItemUseCAse.exec(payload);
       return response.json(item);
