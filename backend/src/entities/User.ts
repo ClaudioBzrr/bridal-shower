@@ -1,3 +1,4 @@
+import { IItem } from './Item';
 import { IAutogen } from './system/Autogen';
 import { IForeign } from './system/Foreign';
 
@@ -23,3 +24,9 @@ export type ICreateAdminPayload = {
   authId?: IUser['id'];
 };
 export type ILoginPayload = Pick<IUser, 'email'>;
+
+export type ISubmitEventPayload = {
+  authId: IUser['id'];
+  pickedItems: IItem['id'][];
+  confirmedAttendance: number;
+};

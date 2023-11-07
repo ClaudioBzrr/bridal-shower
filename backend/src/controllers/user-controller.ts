@@ -7,8 +7,6 @@ import {
 import { CreateUserUseCase } from '../use-cases/create-user-use-case';
 import { PrismaUserRepository } from '../repositories/prisma/prisma-user-repository';
 import { LoginUseCase } from '../use-cases/login-use-case';
-import { ConfirmAmountPresenceUseCase } from '../use-cases/confirm-amount-presence-use-case';
-import { IConfirmPeopeAmountPresencePayload } from '../entities/Item';
 import { CreateAdminUseCase } from '../use-cases/create-admin-use-case';
 
 const userRepository = new PrismaUserRepository();
@@ -30,18 +28,6 @@ export class UserController {
       const payload: ILoginPayload = request.body;
       const auth = await loginUseCase.exec(payload);
       return response.json(auth);
-    } catch (err) {
-      return response.status(404).json(String(err));
-    }
-  }
-  async confirmPresence(request: Request, response: Response) {
-    try {
-      const confirmAmountPresenceUseCase = new ConfirmAmountPresenceUseCase(
-        userRepository,
-      );
-      const payload: IConfirmPeopeAmountPresencePayload = request.body;
-      await confirmAmountPresenceUseCase.execute(payload);
-      return response.json('Quantidade atualizada com');
     } catch (err) {
       return response.status(404).json(String(err));
     }

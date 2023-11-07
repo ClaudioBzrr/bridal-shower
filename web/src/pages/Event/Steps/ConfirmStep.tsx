@@ -19,7 +19,13 @@ export function ConfirmStep({ onSetStepEvent }: IEvent) {
       </h1>
       <div className="mt-20 flex flex-row items-center justify-evenly">
         <div className="min-w-[100px]">
-          <Button title="Não" onClick={() => setConfirmed(false)} />
+          <Button
+            title="Não"
+            onClick={() => {
+              setConfirmed(false);
+              sessionStorage.setItem('confirmedAttendance', String(0));
+            }}
+          />
         </div>
         <div className="min-w-[100px]">
           <Button primary title="Sim" onClick={() => setConfirmed(true)} />

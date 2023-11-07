@@ -34,15 +34,21 @@ export function PickListStep() {
     setItems(itemsResponse);
   }
 
-  async function handleSubmitItems() {
+  async function handleSubmitForm() {
+    const confirmedAttendance = Number(
+      sessionStorage.getItem('confirmedAttendance'),
+    );
     const duration: number = 2000;
     await api
-      .post('/pick', {
+      .post('/submit', {
         authId: localStorage.getItem('id')!,
-        itemId: selectedItems,
+        pickedItems: selectedItems,
+        confirmedAttendance,
       })
       .then(() => {
         toast.success('Salvo com sucesso!', { duration });
+        localStorage.clear();
+        sessionStorage.clear();
         setTimeout(() => navigate('/'), duration);
       })
       .catch((err) =>
@@ -92,7 +98,7 @@ export function PickListStep() {
           </div>
         ) : null}
         <div className="mt-4">
-          <Button primary title="Finalizar" onClick={handleSubmitItems} />
+          <Button primary title="Finalizar" onClick={handleSubmitForm} />
         </div>
       </div>
     </div>
