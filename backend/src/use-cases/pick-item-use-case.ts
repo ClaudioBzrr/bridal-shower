@@ -19,5 +19,9 @@ export class PickItemUseCase {
         await this.itemRepository.update({ id: e }, { userId: payload.authId });
       }
     });
+    await this.userRepository.update(
+      { id: authUser.id },
+      { finishedSubmit: true },
+    );
   }
 }
