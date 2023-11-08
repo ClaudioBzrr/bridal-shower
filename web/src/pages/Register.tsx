@@ -47,6 +47,7 @@ export function Register() {
       >
         <div className="w-full">
           <Input
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Digite seu E-mail"
@@ -54,6 +55,7 @@ export function Register() {
         </div>
         <div className="mt-8 w-full">
           <Input
+            required
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Digite seu Nome"
