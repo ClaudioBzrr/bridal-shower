@@ -7,6 +7,7 @@ import { api } from '../services/api';
 import { toast, Toaster } from 'react-hot-toast';
 import { IUserRegisterApiResponse } from '../types/User';
 import { useNavigate } from 'react-router-dom';
+import { BackButton } from '../components/BackButton';
 
 export function Register() {
   const navigate = useNavigate();
@@ -60,6 +61,9 @@ export function Register() {
         </div>
         <div className="mt-12 w-full">
           <Button primary title="Criar" />
+        </div>
+        <div className="mt-8 w-full">
+          <BackButton />
         </div>
       </form>
     </main>
