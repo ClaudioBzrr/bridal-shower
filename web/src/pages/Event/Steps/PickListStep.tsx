@@ -91,7 +91,7 @@ export function PickListStep() {
           ))}
         </ul>
         {selectedItems.length > 0 ? (
-          <div className="font-sans-serif mt-10 w-full text-right text-sm font-semibold text-slate-200">
+          <div className="font-sans-serif mt-5 w-full text-right text-sm font-semibold text-slate-200 sm:mt-8">
             {selectedItems.length}{' '}
             {selectedItems.length != 1
               ? 'itens selecionados'
@@ -101,7 +101,7 @@ export function PickListStep() {
         <div className="mt-4">
           <Button primary title="Finalizar" onClick={handleSubmitForm} />
         </div>
-        <div className="mt-8">
+        <div className="mt-2 sm:mt-8">
           <BackButton />
         </div>
       </div>
