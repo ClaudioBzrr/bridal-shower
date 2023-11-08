@@ -13,6 +13,7 @@ export function Login() {
   const [email, setEmail] = useState<string>('');
 
   async function handleLogin(event: FormEvent) {
+    const duration: number = 2000;
     event.preventDefault();
     const user: IUserRegisterApiResponse = await api
       .post('/login', { email })
@@ -24,11 +25,11 @@ export function Login() {
       });
     localStorage.setItem('id', user.id);
     localStorage.setItem('name', user.name);
-    navigate('/event');
     toast.success('Usuário logado com sucesso', {
       position: 'top-center',
-      duration: 2000,
+      duration,
     });
+    setTimeout(() => navigate('/event'), duration);
   }
   return (
     <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw] flex-col items-center justify-evenly bg-slate-900">
