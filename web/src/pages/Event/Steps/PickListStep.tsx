@@ -7,6 +7,7 @@ import { IITem } from '../../../types/Item';
 import toast, { Toaster } from 'react-hot-toast';
 import { api } from '../../../services/api';
 import { useNavigate } from 'react-router-dom';
+import { BackButton } from '../../../components/BackButton';
 
 export function PickListStep() {
   const navigate = useNavigate();
@@ -99,6 +100,9 @@ export function PickListStep() {
         ) : null}
         <div className="mt-4">
           <Button primary title="Finalizar" onClick={handleSubmitForm} />
+        </div>
+        <div className="mt-8">
+          <BackButton />
         </div>
       </div>
     </div>
