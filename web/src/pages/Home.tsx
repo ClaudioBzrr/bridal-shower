@@ -10,7 +10,7 @@ export function Home() {
   const navigate =  useNavigate()
 
   return (
-    <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw]  flex-col items-center justify-evenly bg-slate-900">
+    <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw] flex-col  items-center justify-evenly bg-slate-950 bg-[url('../assets/images/background.png')] bg-cover bg-center bg-no-repeat">
       <section>
         <Invite/>
       </section>

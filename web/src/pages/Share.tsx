@@ -1,24 +1,27 @@
-import html2canvas from 'html2canvas';
 import { Button } from '../components/Button';
 import { Invite } from '../components/Invite';
+import SharedImage from '../assets/images/we-2.png';
+
 import toast from 'react-hot-toast';
 
 export function Share() {
-  async function generateImage() {
-    window.scrollTo(0, 0);
-    const canvas = await html2canvas(document.querySelector('#invite')!);
-    const base64 = canvas.toDataURL('image/png');
-    return base64;
-  }
+  // async function generateImage() {
+  //   window.scrollTo(0, 0);
+  //   const canvas = await html2canvas(document.querySelector('#invite')!);
+  //   const base64 = canvas.toDataURL('image/png');
+  //   return base64;
+  // }
 
   async function shareInvite() {
     try {
-      const response = await fetch(await generateImage());
+      const urlToShare = window.location.href.replace('/share', '');
+      const response = await fetch(SharedImage);
       const blob = await response.blob();
       const file = new File([blob], 'share.png', { type: blob.type });
       await navigator.share({
         title: 'Convite para nosso Chá de Cozinha',
-        text: `Te convido a participar do nosso chá de cozinha, confirme sua presença em ${window.location}`,
+        url: urlToShare,
+        text: `É com muito carinho que te convidamos a participar do nosso chá de cozinha, confirme sua presença em ${urlToShare}`,
         files: [file],
       });
     } catch (err) {
