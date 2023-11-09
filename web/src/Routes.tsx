@@ -1,7 +1,8 @@
-import { Event } from './pages/Event';
+import { Event } from './pages/Event/';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
+import { Share } from './pages/Share';
 import { IRoute } from './types/Route';
 
 export const routes: IRoute[] = [
@@ -20,5 +21,9 @@ export const routes: IRoute[] = [
   {
     path: '/event',
     element: <Event />,
+  },
+  {
+    path: '/share',
+    element: <Share />,
   },
 ];
