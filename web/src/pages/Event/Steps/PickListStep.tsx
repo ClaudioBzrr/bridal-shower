@@ -76,11 +76,11 @@ export function PickListStep() {
               onClick={() => handleSelectItem(e.id)}
               key={index}
               className={`cursor-pointer pl-2 font-satisfy text-3xl text-slate-50 ${
-                selectedItems.includes(e.id) ? 'rounded-lg bg-slate-950' : ''
+                selectedItems.includes(e.id) ? 'rounded-lg bg-slate-700' : ''
               }`}
             >
               {selectedItems.includes(e.id) ? (
-                <div className="flex flex-row text-green-900">
+                <div className="flex flex-row text-lime-300">
                   <AiOutlineCheck />
                   {e.name}
                 </div>

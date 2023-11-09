@@ -32,7 +32,7 @@ export function Login() {
     setTimeout(() => navigate('/event'), duration);
   }
   return (
-    <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw] flex-col items-center justify-evenly bg-slate-900">
+    <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw] flex-col items-center justify-evenly bg-slate-950 bg-[url('../assets/images/background_form.png')] bg-cover bg-center bg-no-repeat">
       <Toaster />
       <form
         onSubmit={(e) => handleLogin(e)}

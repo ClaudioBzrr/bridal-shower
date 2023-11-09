@@ -36,7 +36,7 @@ export function Register() {
     setTimeout(() => navigate('/event'), duration);
   }
   return (
-    <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw] flex-col items-center justify-center bg-slate-900">
+    <main className="flex h-[100vh] max-h-[100vh] w-full max-w-[100vw] flex-col items-center justify-center bg-slate-950 bg-[url('../assets/images/background_form.png')] bg-cover bg-center bg-no-repeat">
       <Toaster />
       <h1 className="text-center font-satisfy text-2xl text-slate-50 sm:text-4xl">
         Faça o cadastro para prosseguir, é simples e rápido

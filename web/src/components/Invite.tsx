@@ -34,7 +34,7 @@ export function Invite() {
         </div>
       </section>
       <section className="flex w-full flex-col items-center justify-evenly pt-5 text-slate-50 sm:justify-between">
-        <div id="location" className=" font-satisfy flex flex-col  text-center text-2xl sm:flex-row sm:text-3xl">
+        <div id="location" className="font-satisfy flex flex-col rounded-full bg-slate-900 p-4 text-center text-2xl sm:flex-row sm:p-2 sm:text-3xl">
           <div >18/11 às 18:00 hrs no </div>
           <div className='sm: ml-2'><a className="flex flex-row text-green-700 hover:underline" target="__blank" href="https://maps.app.goo.gl/GGCJYrEpCwuUN5Kg6"><FaLocationDot/>Floresta Bar</a></div>
         </div>

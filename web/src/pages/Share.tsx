@@ -30,7 +30,7 @@ export function Share() {
   }
 
   return (
-    <div className="flex min-h-screen max-w-[100vw] flex-col items-center justify-center bg-slate-900">
+    <div className="flex min-h-screen max-w-[100vw] flex-col items-center justify-center bg-slate-950 bg-[url('../assets/images/background.png')] bg-cover bg-center bg-no-repeat">
       <Invite />
       <div className="mt-12 w-48 max-w-lg">
         <Button title="Compartilhar" primary onClick={shareInvite} />
