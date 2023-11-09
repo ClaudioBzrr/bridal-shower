@@ -5,9 +5,8 @@ import toast from 'react-hot-toast';
 
 export function Share() {
   async function generateImage() {
-    const canvas = await html2canvas(document.querySelector('#invite')!, {
-      removeContainer: true,
-    });
+    window.scrollTo(0, 0);
+    const canvas = await html2canvas(document.querySelector('#invite')!);
     const base64 = canvas.toDataURL('image/png');
     return base64;
   }
