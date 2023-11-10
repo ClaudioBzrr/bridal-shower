@@ -52,7 +52,7 @@ export function Login() {
         <div className="pt-12 text-center">
           <a
             onClick={() => navigate('/register')}
-            className="text-center font-satisfy text-xl text-slate-50"
+            className="cursor-pointer text-center font-satisfy text-xl text-slate-50"
           >
             🤨 Não tem um acesso ? Crie um aqui
           </a>
