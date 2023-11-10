@@ -1,6 +1,6 @@
 /* eslint-disable tailwindcss/classnames-order */
 /* eslint-disable tailwindcss/no-custom-classname */
-import React, { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 
 type IButton = ButtonHTMLAttributes<HTMLButtonElement> & {
   title: string;
