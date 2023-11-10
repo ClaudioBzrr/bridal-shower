@@ -1,7 +1,12 @@
-import { Routes, Route } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  RouterProvider,
+  createHashRouter,
+} from 'react-router-dom';
 import { routes } from './Routes';
 
-export function App() {
+function Root() {
   return (
     <Routes>
       {routes.map(({ path, element }, index) => (
@@ -9,4 +14,10 @@ export function App() {
       ))}
     </Routes>
   );
+}
+
+const router = createHashRouter([{ path: '*', Component: Root }]);
+
+export function App() {
+  return <RouterProvider router={router} />;
 }
