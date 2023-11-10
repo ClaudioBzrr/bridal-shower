@@ -14,7 +14,7 @@ export function Share() {
 
   async function shareInvite() {
     try {
-      const urlToShare = window.location.href.replace('#/share', '');
+      const urlToShare = window.location.href.replace('/share', '');
       const response = await fetch(SharedImage);
       const blob = await response.blob();
       const file = new File([blob], 'share.png', { type: blob.type });
