@@ -1,4 +1,4 @@
-import { Event } from './pages/Event';
+import { Event } from './pages/event';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
