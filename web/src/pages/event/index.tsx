@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { ChooseAmountStep } from './steps/ChooseAmountStep';
-import { PickListStep } from './steps/PickListStep';
-import { ConfirmStep } from './steps/ConfirmStep';
+import { ChooseAmountStep } from './Steps/ChooseAmountStep';
+import { PickListStep } from './Steps/PickListStep';
+import { ConfirmStep } from './Steps/ConfirmStep';
 
 export function Event() {
   const [eventconfirm, setEventConfirm] = useState<boolean>(false);
