@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import { routes } from './routes';
 
-const port = String(process.env.SERVER_PORT || process.env.PORT);
+const port = String(process.env.PORT || process.env.SERVER_PORT);
 const server = express();
 
 server.use(cors());
