@@ -20,7 +20,6 @@ export function Share() {
       const file = new File([blob], 'share.png', { type: blob.type });
       await navigator.share({
         title: 'Convite para nosso Chá de Cozinha',
-        url: urlToShare,
         text: `É com muito carinho que te convidamos a participar do nosso chá de cozinha, confirme sua presença em ${urlToShare}`,
         files: [file],
       });
