@@ -51,7 +51,7 @@ export function Login() {
         </div>
         <div className="pt-12 text-center">
           <a
-            href="/register"
+            onClick={() => navigate('/register')}
             className="text-center font-satisfy text-xl text-slate-50"
           >
             🤨 Não tem um acesso ? Crie um aqui
