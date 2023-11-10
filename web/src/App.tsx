@@ -3,7 +3,7 @@ import { routes } from './Routes';
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/bridal-shower">
       <Routes>
         {routes.map(({ path, element }, index) => (
           <Route key={index} path={path} element={element} />
