@@ -120,9 +120,11 @@ export function PickListStep() {
             onClick={handleSubmitForm}
           />
         </div>
-        <div className="mt-2 sm:mt-8">
-          <BackButton />
-        </div>
+        {loading == false ? (
+          <div className="mt-2 sm:mt-8">
+            <BackButton />
+          </div>
+        ) : null}
       </div>
     </div>
   );
