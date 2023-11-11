@@ -14,6 +14,9 @@ export function Home() {
       <section>
         <Invite/>
       </section>
+      <section className='py-2'>
+        <p className=' text-slate-50'>Rodízio no local : R$ 49,90</p>
+      </section>
       <section className="flex  h-[16em] w-[20em] flex-col items-center justify-evenly text-slate-50 sm:h-[10em] sm:w-[40em] sm:justify-between">
         <div id="confirm-presence">
             <button onClick={() =>navigate('/login')} className="0.5s font-amatic flex flex-row items-center rounded-full bg-red-400 p-3 text-2xl font-bold transition-all ease-in-out hover:bg-red-500 sm:p-5 sm:text-3xl">Quero participar<FiChevronsRight/></button>
