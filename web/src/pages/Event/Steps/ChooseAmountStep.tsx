@@ -13,7 +13,10 @@ export function ChooseAmountStep({ onChooseAmount }: IChoooseAmountStep) {
 
   async function handleConfirmPeopleAmount(e: FormEvent) {
     e.preventDefault();
-    sessionStorage.setItem('confirmedAttendance', peopleAmount.toString());
+    sessionStorage.setItem(
+      'confirmedAttendance',
+      (peopleAmount + 1).toString(),
+    );
     onChooseAmount(true);
   }
 

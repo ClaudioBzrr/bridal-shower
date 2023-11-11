@@ -11,14 +11,17 @@ import { toast, Toaster } from 'react-hot-toast';
 export function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   async function handleLogin(event: FormEvent) {
-    const duration: number = 2000;
+    const duration: number = 1000;
     event.preventDefault();
+    setLoading(true);
     const user: IUserRegisterApiResponse = await api
       .post('/login', { email })
       .then((response) => response.data)
       .catch((err) => {
+        setLoading(false);
         toast.error('response' in err ? err.response.data : String(err), {
           position: 'top-center',
         });
@@ -29,6 +32,7 @@ export function Login() {
       position: 'top-center',
       duration,
     });
+    setLoading(false);
     setTimeout(() => navigate('/event'), duration);
   }
   return (
@@ -47,7 +51,7 @@ export function Login() {
           />
         </div>
         <div className="pt-12">
-          <Button primary title="Entrar" />
+          <Button loading={loading} primary title="Entrar" />
         </div>
         <div className="pt-12 text-center">
           <a

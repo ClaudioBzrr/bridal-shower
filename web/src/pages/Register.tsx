@@ -13,14 +13,17 @@ export function Register() {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   async function handleRegister(event: FormEvent) {
     const duration = 1000;
     event.preventDefault();
+    setLoading(true);
     const user: IUserRegisterApiResponse = await api
       .post('/user', { name, email })
       .then((response) => response.data)
       .catch((err) => {
+        setLoading(false);
         toast.error('response' in err ? err.response.data : String(err), {
           position: 'top-center',
           duration,
@@ -33,6 +36,7 @@ export function Register() {
       position: 'top-center',
       duration,
     });
+    setLoading(false);
     setTimeout(() => navigate('/event'), duration);
   }
   return (
@@ -62,7 +66,7 @@ export function Register() {
           />
         </div>
         <div className="mt-12 w-full">
-          <Button primary title="Criar" />
+          <Button loading={loading} primary title="Criar" />
         </div>
         <div className="mt-8 w-full">
           <BackButton />

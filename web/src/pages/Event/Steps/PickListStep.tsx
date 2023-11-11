@@ -8,11 +8,13 @@ import toast, { Toaster } from 'react-hot-toast';
 import { api } from '../../../services/api';
 import { useNavigate } from 'react-router-dom';
 import { BackButton } from '../../../components/BackButton';
+import { CopyButton } from '../../../components/CopyButton';
 
 export function PickListStep() {
   const navigate = useNavigate();
   const [items, setItems] = useState<IITem[]>([]);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   function handleSelectItem(item: string) {
     if (selectedItems.find((e) => e == item)) {
@@ -24,15 +26,18 @@ export function PickListStep() {
   }
 
   async function fetchItems() {
+    setLoading(true);
     const itemsResponse: IITem[] = await api
       .get('/items')
       .then((response) => response.data)
       .catch((err) => {
+        setLoading(false);
         toast.error('response' in err ? err.response.data : String(err), {
           duration: 2000,
         });
       });
     setItems(itemsResponse);
+    setLoading(false);
   }
 
   async function handleSubmitForm() {
@@ -40,6 +45,7 @@ export function PickListStep() {
       sessionStorage.getItem('confirmedAttendance'),
     );
     const duration: number = 2000;
+    setLoading(true);
     await api
       .post('/submit', {
         authId: localStorage.getItem('id')!,
@@ -50,13 +56,15 @@ export function PickListStep() {
         toast.success('Salvo com sucesso!', { duration });
         localStorage.clear();
         sessionStorage.clear();
+        setLoading(false);
         setTimeout(() => navigate('/'), duration);
       })
-      .catch((err) =>
+      .catch((err) => {
+        setLoading(false);
         toast.error('response' in err ? err.response.data : String(err), {
           duration: 2000,
-        }),
-      );
+        });
+      });
   }
 
   useEffect(() => {
@@ -69,6 +77,12 @@ export function PickListStep() {
       <h1 className="font-amatic text-4xl text-slate-50 sm:text-5xl">
         Gostaria de nos presentear com algum item da lista abaixo?
       </h1>
+      <div className="flex flex-row items-center justify-start text-sm font-extralight text-slate-50 sm:mt-4 sm:text-lg">
+        <h2 className="mr-4">Chave pix (CPF) : 07402232328</h2>
+        <div className="w-24">
+          <CopyButton primary text="07402232328" />
+        </div>
+      </div>
       <div className="w-full">
         <ul className="scrollbar-thumb-rounded-full scrollbar-track-rounded-full mt-12 max-h-80 max-w-full overflow-y-scroll scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600">
           {items.map((e, index) => (
@@ -99,7 +113,12 @@ export function PickListStep() {
           </div>
         ) : null}
         <div className="mt-4">
-          <Button primary title="Finalizar" onClick={handleSubmitForm} />
+          <Button
+            loading={loading}
+            primary
+            title="Finalizar"
+            onClick={handleSubmitForm}
+          />
         </div>
         <div className="mt-2 sm:mt-8">
           <BackButton />
